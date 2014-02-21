@@ -41,8 +41,8 @@ Enjine.KeyboardInput = {
     
     Initialize: function() {
         var self = this;
-        document.onkeydown = function(event) { self.KeyDownEvent(event); }
-        document.onkeyup = function(event) { self.KeyUpEvent(event); }
+        //document.onkeydown = function(event) { self.KeyDownEvent(event); }
+        //document.onkeyup = function(event) { self.KeyUpEvent(event); }
     },
     
     IsKeyDown: function(key) {
@@ -50,15 +50,17 @@ Enjine.KeyboardInput = {
             return this.Pressed[key];
         return false;
     },
-    
+
     KeyDownEvent: function(event) {
+        console.log(event);
         this.Pressed[event.keyCode] = true;
-	this.PreventScrolling(event);
+        //this.PreventScrolling(event);
     },
     
     KeyUpEvent: function(event) {
+        console.log(event);
         this.Pressed[event.keyCode] = false;
-	this.PreventScrolling(event);
+        //this.PreventScrolling(event);
     },
 
     PreventScrolling: function(event) {
